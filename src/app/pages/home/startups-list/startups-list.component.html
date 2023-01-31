@@ -1,0 +1,82 @@
+<div class="startups-list pt-100 pb-100" id="startupsExp">
+  <div class="wrapper">
+    <div class="section__title-container">
+      <h2 class="section__title">
+        Know <br />About The Most Brilliant Startups!
+      </h2>
+    </div>
+    <!-- (selectedTabChange)="tabChanged($event)" -->
+    <div class="">
+      <mat-tab-group
+        [@.disabled]="true"
+        class="startups-list__menu"
+        (selectedTabChange)="tabChanged($event)"
+      >
+        <mat-tab>
+          <ng-template mat-tab-label
+            ><div>
+              <button type="button" role="tab">See All</button>
+            </div></ng-template
+          >
+          <div
+            class="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-30 pb-30 relative"
+          >
+            <div
+              *ngFor="let startup of startups"
+              class="mt-6 rounded-md shadow-xl bg-secondary flex flex-col justify-start"
+            >
+              <!-- Image -->
+
+              <!-- Body -->
+              <div class="p-6 text-2xl">
+                <!-- Link -->
+                <a class="font-bold mb-2">
+                  {{ startup.startupName }}
+                  <img
+                    [src]="startup.startupLogo"
+                    alt=""
+                    (click)="toStartupDetails(startup.key)"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <ng-container *ngFor="let sector of sectors">
+          <mat-tab label="{{ sector.sectorName }}">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-30 pb-30">
+              <div
+                *ngFor="let curr of current"
+                class="mt-6 rounded-md shadow-xl bg-secondary flex flex-col justify-start"
+              >
+                <div class="logo_container"></div>
+                <!-- Image -->
+                <a (click)="toStartupDetails(curr.key)">
+                  <img
+                    class="card-img-top rounded-md w-full"
+                    [src]="curr.coverImg"
+                  />
+                </a>
+                <!-- Body -->
+                <div class="p-6 text-2xl">
+                  <!-- Link -->
+                  <a class="font-bold mb-2">
+                    {{ curr.startupName }}
+                    <img
+                      [src]="curr.startupLogo"
+                      alt=""
+                      (click)="toStartupDetails(curr.key)"
+                    />
+                  </a>
+                  <span class="sector_name_home_S">{{
+                    curr.sectorName | join
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

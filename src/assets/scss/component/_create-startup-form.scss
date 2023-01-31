@@ -1,0 +1,84 @@
+@use '../global' as *;
+
+.create-startup{
+  &__wrapper{
+    position: relative;
+    width: 50%;
+    @extend %flex-col;
+    margin-top: 30px;
+    margin: auto;
+    button{
+      width: 30%;
+      padding: 5px 10px;
+      @media screen and (max-width:840px) {
+        width: 100%;
+      }
+  }
+
+    form{
+      margin: auto;
+      padding-bottom: 3rem;
+      .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        @media screen and (max-width:840px) {
+          grid-template-columns: 1fr;
+        }
+    }
+
+  }
+    h1{
+        padding: 2rem 0;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+    .return_btn{
+position: absolute;
+right: 0;
+top: 0;
+background-color: var(--primary)!important;
+color: #fff !important;
+    }
+  }
+
+  &__upLoad{
+    background-color:  $main_gold ;
+    color:$white;
+    font-weight: 900;
+    cursor: pointer;
+      width: 400px;
+      padding: 20px 40px;
+      border: 2px solid $main_gold;
+      border-radius: 8px;
+
+  }
+}
+.logo__form__img{
+  position: relative;
+  .create-startup__upLoad{
+    z-index: 10 !important;
+  }
+
+
+
+}
+
+.dragBox{
+  width: 30%;
+  padding: 30px;
+  margin-bottom: 20px;
+  @media screen and (max-width:700px) {
+    width: 100%;
+  }
+
+}
+.dragTitle{
+  text-align: center;
+}
+
+.previewLogo{
+display: inline-block;
+  margin:40px 0;
+
+}

@@ -1,0 +1,111 @@
+@use '../global' as *;
+
+.page{
+  @include flex-centering();
+
+  &__title{
+    font-size: 5rem;
+    font-weight: 700;
+    color: $white;
+
+    margin-bottom: 0;
+    @media #{$xs}{
+      font-size: 50px;
+    }
+    @media screen and (max-width:640px) {
+        font-size: 3rem;
+    }
+
+    &-overlay{
+      position: relative;
+      &::after{
+          position: absolute;
+          content: '';
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba($color: #000320, $alpha: .6);
+      }
+  }
+
+    &-wrapper{
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      padding-left: 100px;
+      @media screen and (max-width:350px) {
+     padding-left: 40px;
+
+      }
+
+      & .banner{
+          margin-bottom: 0;
+          display: flex;
+          & .banner-item{
+              &.active{
+                  font-size: 15px;
+                  color: $gray;
+
+              }
+              & a{
+                  font-size: 15px;
+                  font-weight: 400;
+                  color: $gray;
+              }
+              & + .banner-item{
+                  padding-left: 13px;
+
+              }
+          }
+      }
+  }
+  &-height{
+    min-height: 450px;
+    // @include background();
+   }
+   &-banner{
+    & .banner{
+      display: flex;
+      flex-direction: row;
+        margin-bottom: 30px;
+        & .banner-item{
+            font-size: 14px;
+            font-weight: 400;
+            color: $white;
+            &.active{
+                &::before{
+                    content: '.';
+                    font-family: $poppins;
+                    font-size: 30px;
+                    color: $white;
+                    line-height: 18px;
+                    padding-right: 13px;
+                }
+            }
+            & + .banner-item{
+                &::before{
+                    content: '.';
+                    font-family: $poppins;
+                    font-size: 30px;
+                    color: $white;
+                    line-height: 18px;
+                    padding-right: 13px;
+                }
+            }
+        }
+    }
+}
+  }
+}
+
+.cover__banner__img{
+ height: 200px;
+ width: 100%;
+img{
+  width: 100%;
+  height: 100%;
+}
+}

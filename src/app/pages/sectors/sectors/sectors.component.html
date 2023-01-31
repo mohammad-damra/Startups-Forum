@@ -1,0 +1,48 @@
+<app-spinner *ngIf="showSpinner"></app-spinner>
+<section *ngIf="!showSpinner">
+
+<app-banner title="Sectors"  subtitle="Sectors"></app-banner>
+
+<section class="Sectors  mb-100" id="about" *ngFor="let sector of sectors">
+  <div class="wrapper">
+      <div class="sectorsDisplat__row">
+          <div class="sectorsDisplat__col">
+              <div class="sectorsDisplat__left">
+                  <div class="sectorsDisplat__heading">
+                    <div class="sup__title">
+                      <span [style.backgroundColor]="sector.designColor"  class="display__line"></span>
+
+                      <h6 routerLink='sectorDetails/{{sector.sectorName}}' [style.color]="sector.designColor" class="cursor-pointer">{{sector.sectorName}} </h6>
+                     </div>
+                      <h2 class=" mt-20 ">{{sector.sectorName}}<br> is one of most important <br> sectors in Jordan.</h2>
+                  </div>
+                  <div class="sectorsDisplat__description mt-40 mb-50">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, esse aliquid! Voluptatem odit ea quibusdam esse voluptates necessitatibus, maxime commodi ipsa aspernatur facere excepturi! Omnis illo quaerat placeat ea fugiat?</p>
+                  </div>
+                  <div class="sectorsDisplat__smallPics">
+                      <div class="col-4">
+                          <img src="" alt="">
+                      </div>
+                      <div class="col-4">
+                          <img src="" alt="">
+                      </div>
+                      <div class="col-4">
+                          <img src="" alt="">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="sectorsDisplat__right">
+
+                  <div class="sectorsDisplat__thumb">
+
+                      <img src="{{sector.sectorLogo}}" alt="">
+                  </div>
+
+          </div>
+      </div>
+  </div>
+</section>
+<app-footer></app-footer>
+
+</section>

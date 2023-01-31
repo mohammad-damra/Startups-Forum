@@ -1,0 +1,19 @@
+@use '../global' as *;
+
+
+
+.logo_container{
+  position: absolute;
+  background-color: $white;
+  padding: 20px 10px;
+  border-radius: 0 0 6px 6px;
+  img{
+    width: 60px;
+  }
+}
+
+.sector_name_home_S{
+  display: block;
+  font-size: .8rem;
+  color: $main_dark;
+}

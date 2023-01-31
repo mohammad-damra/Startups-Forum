@@ -1,0 +1,78 @@
+<div class="wrapper flex justify-center">
+  <div class="dash-Startup-Manage__wrapper">
+    <h1 class="dash-Startup-Manage__title">Startups</h1>
+
+      <h2 class="filter__title">Filter by sector:</h2>
+      <mat-form-field appearance="fill">
+        <mat-select (selectionChange)="onChange($event)">
+          <mat-option value="all"> All
+          </mat-option>
+          <mat-option  *ngFor="let sector of sectors" [value]="sector.sectorName">{{sector.sectorName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+<mat-table class="dash-Startup-Manage__table" mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+    <!-- startupName -->
+    <ng-container matColumnDef="startupName">
+      <th mat-header-cell *matHeaderCellDef> Startup Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.startupName}} </td>
+    </ng-container>
+    <!-- startupCity -->
+    <ng-container matColumnDef="startupCity">
+        <th mat-header-cell *matHeaderCellDef> Startup City </th>
+        <td mat-cell *matCellDef="let element"> {{element.startupCity}} </td>
+      </ng-container>
+    <!-- sectorName -->
+    <ng-container matColumnDef="sectorName">
+      <th mat-header-cell *matHeaderCellDef> Sector Name </th>
+      <td mat-cell *matCellDef="let element">{{element.sectorName|join}}</td>
+    </ng-container>
+    <!-- yearOfEstablishment -->
+    <ng-container matColumnDef="yearOfEstablishment">
+        <th mat-header-cell [hidden]="show" *matHeaderCellDef> Year </th>
+        <td mat-cell  [hidden]="show" *matCellDef="let element"> {{element.yearOfEstablishment}} </td>
+      </ng-container>
+    <!-- websiteURL -->
+    <ng-container matColumnDef="websiteURL" >
+      <th mat-header-cell [hidden]="show"  *matHeaderCellDef> Web </th>
+      <td mat-cell [hidden]="show" *matCellDef="let element" > <a href="{{element.websiteURL}}" target="_blank">{{element.startupName}}</a> </td>
+    </ng-container>
+    <!-- emailAddress -->
+    <ng-container matColumnDef="approval">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+
+        <td mat-cell *matCellDef="let element">
+          <p *ngIf="element.isApproved else notApproved" class="text-green-400">Approved</p>
+          <ng-template #notApproved> <p class="text-red-400"> Not Approved</p></ng-template>
+        </td>
+      </ng-container>
+    <!-- Symbol Column -->
+    <ng-Action matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" [routerLink]="['/startups/add-startup/', element.key]">
+          <mat-icon>edit </mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="approve(element.key)">
+              <mat-icon>check</mat-icon>
+                </button>
+
+            <button mat-icon-button color="warn" (click)="deleteStartup(element.key)">
+          <mat-icon>delete</mat-icon>
+            </button>
+
+           </td>
+
+    </ng-Action>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        (click)="selection.toggle(row)">
+    </tr>
+  </mat-table>
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+</div>
+
+</div>

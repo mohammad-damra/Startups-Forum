@@ -1,0 +1,134 @@
+@use "../global" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+html {
+  scroll-behavior: auto !important;
+}
+
+html,
+body {
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
+  }
+}
+
+.wrapper {
+  width: 85%;
+  margin: 0 auto;
+  @media (min-width: 1800px) {
+    width: 70%;
+  }
+}
+
+.btn_primary {
+  background-color: $white;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $gray_dark;
+  border-radius: 20px;
+  padding: 1rem 0.8rem;
+  cursor: pointer;
+}
+
+.btn_secondary {
+  background-color: $main_gold;
+  border: 1px solid $main_gold;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $white;
+  padding: 0.6rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.line {
+  display: block;
+  width: 70px;
+  margin: auto;
+  height: 2px;
+  background: rgb(51, 67, 207);
+  transition: width 0.2s ease-in-out;
+}
+
+.btn_secondary:hover {
+  background-color: $main_dark;
+}
+
+.btn_secondary_outline {
+  background-color: $white;
+  border: 1px solid $main_gold;
+  /* border: none; */
+  font-size: 1rem;
+  font-weight: 600;
+  color: $main_gold;
+  padding: 1rem 2.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn_secondary_outline:hover {
+  background-color: $main_bright;
+}
+
+.title-1 {
+  font-size: 80px;
+}
+
+.title-3 {
+  font-size: 24px;
+}
+
+.title-4 {
+  font-size: 16px;
+}
+
+.section {
+  &__title-container {
+    margin-bottom: 30px;
+    @include flex-centering();
+    flex-direction: column;
+    &:hover .line {
+      width: 150px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: rgb(29, 29, 29);
+    margin: 10px 0;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: $main_dark !important;
+}
+.swal2-styled.swal2-deny {
+  background-color: $main_dark !important;
+}
+.swal2-styled.swal2-cancle {
+  background-color: $main_dark !important;
+}

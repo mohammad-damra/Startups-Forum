@@ -1,0 +1,76 @@
+<div class="wrapper">
+  <app-alert *ngIf="showAlert" [color]="alertColor"
+    ><div class="container">
+      <p class="dynamic-text">{{ alertMessage }}</p>
+    </div></app-alert
+  >
+
+  <!-- Login Form / using template forms-->
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">Email</label>
+      <input
+        #email="ngModel"
+        class="block w-full py-1.5 px-3 text-yellow-800 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-yellow-800"
+        required
+        type="email"
+        name="email"
+        placeholder="Enter Email"
+        [(ngModel)]="creadentials.email"
+      />
+      <p
+        *ngIf="email.errors && email.touched && email.dirty"
+        class="text-red-400"
+      >
+        Email is invalid
+      </p>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">Password</label>
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="creadentials.password"
+        #password="ngModel"
+        required
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+        class="block w-full py-1.5 px-3 text-yellow-800 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-yellow-800"
+        placeholder="Password"
+      />
+      <p
+        *ngIf="password.errors && password.touched && password.dirty"
+        class="text-red-400"
+      >
+        Password is invalid
+      </p>
+    </div>
+    <button
+      type="submit"
+      class="block w-full bg-yellow-600 text-white py-1.5 px-3 rounded transition hover:bg-yellow-800 disabled:opacity-50 disabled:bg-yellow-500"
+      [disabled]="loginForm.invalid || inSubmission"
+      style="background-color: blue"
+    >
+      Login
+    </button>
+  </form>
+
+  <div class="mb-3 mt-3 flex flex-col justify-center items-center">
+    <label class="inline-block mb-2">Or</label>
+    <button
+      flex
+      flex-row
+      class="block w-3/4 h-12 flex flex-row text-xs justify-center items-center bg-white-600 text-black border py-1.5 px-3 rounded transition border-black hover:drop-shadow-md"
+      (click)="onGoogleLogin()"
+    >
+      Continue with Google
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/home%2Fg.webp?alt=media&token=fd33a430-487e-4eaa-9296-e02cd25fe0a8"
+        alt=""
+        class="google_icon ml-2"
+      />
+    </button>
+  </div>
+</div>

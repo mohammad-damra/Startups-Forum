@@ -1,0 +1,53 @@
+@use '../global' as *;
+.mat-table {
+  overflow-x: scroll;
+}
+
+
+
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
+.dash-Sector-Manage__table {
+
+  overflow-x: scroll !important;
+  td, th {
+
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+}
+.dash-Sector-Manage__title{
+  font-size: 2rem;
+  font-weight: 900;
+  color:var(--primary);
+
+}
+.dash-Sector-Manage__wrapper{
+  @extend %flex-col;
+
+  width: 90%;
+  gap: 20px;
+  h1{
+      margin-top: 20px;
+  }
+}
+.action_btns{
+  @extend %flex-row;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+
+
+@media screen and (max-width:450px){
+.dash-Sector-Manage__title{
+text-align: center
+};
+mat-form-field{
+      width: 80%;
+      align-self: center
+};
+
+}

@@ -1,0 +1,104 @@
+@use '../global' as *;
+
+.about{
+  &__area{
+    background-color: #f5f5f5;
+  }
+   &__row{
+    @include flex-centering();
+    flex-direction: row;
+    gap: 20px;
+    @media screen and (max-width:1105px) {
+      flex-direction: column;
+    }
+   }
+   &__right{
+    @extend %flex-col;
+    justify-content: flex-start;
+    width: 60%;
+    @media screen and (max-width:1105px) {
+     width: 100%;
+     justify-content: center;
+     margin: 10px auto;
+     align-items: center;
+    }
+   }
+   &__left{
+    @extend %flex-col;
+    justify-content: flex-start;
+    width: 30%;
+    @media screen and (max-width:1120px) {
+      width: 50%;
+     margin: 10px auto;
+     }
+     @media screen and (max-width:650px) {
+      width: 100%;
+     }
+   }
+   &__contact-from{
+    width: 80%;
+
+   }
+   &__main-title{
+    h2{
+      text-align: left;
+      font-size: 2rem;
+      font-weight: 800;
+      @media screen and (max-width:1105px) {
+        text-align: center;
+       }
+    }
+    p{
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 200;
+        color: $main_dark;
+        @media screen and (max-width:1105px) {
+          text-align: center;
+         }
+    }
+   }
+
+
+}
+
+.contact__btn{
+  background-color: $main_gold;
+  color: $white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  width: fit-content;
+  &:hover{
+    background-color: $main_dark
+  }
+  @media screen and (max-width:1105px) {
+   margin: 0 auto;
+   }
+}
+
+.about-info{
+
+  &__container{
+    @include flex-centering();
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+  &__logo{
+    width: 200px;
+    img{
+      width: 100%;
+    }
+  }
+  &__who-are-we{
+    width: 60%;
+   p{
+
+    font-weight: 200;
+    color: $gray_dark;
+   }
+  }
+}

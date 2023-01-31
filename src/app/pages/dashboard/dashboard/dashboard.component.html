@@ -1,0 +1,29 @@
+<div class="dashboard pt-70 pb-100">
+  <div class="dashboard__layout">
+  <div class="dash_content">
+    <div class="nav-icons mt-70 mb-20 ">
+      <ul class="nav-icons__list">
+        <li>
+          <a [routerLink]="['/dashboard/dashboard-overview']"  routerLinkActive="activeNav">
+            <i class='bx bx-grid-alt'></i>
+          </a>
+
+        </li>
+        <li  >
+         <a [routerLink]="['/dashboard/sectors-manage']"  routerLinkActive="activeNav">
+           <i class='bx bx-intersect' ></i>
+         </a>
+
+        </li>
+
+        <li>
+         <a [routerLink]="['/dashboard/startups-manage']"  routerLinkActive="activeNav">
+           <i class='bx bx-rocket'></i>
+         </a>
+        </li>
+      </ul>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  </div>
+</div>

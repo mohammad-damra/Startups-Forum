@@ -1,0 +1,115 @@
+@use '../global' as *;
+
+.sectorsDisplat{
+  &__thumb_startup{
+    position: relative;
+    img{
+      width: 90%;
+      border-radius: 10px;
+    }
+  }
+  &__row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    @media (max-width:900px){
+      grid-template-columns: 1fr;
+    }
+  }
+  &__left{
+    display: flex;
+    flex-direction: column;
+  }
+  &__smallPics{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  &__heading{
+
+    h6{
+      font-size: 1.2rem;
+      color: $main_gold;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+    }
+    .display__line{
+      display: inline-block;
+      width: 40px;
+      background-color: $main_gold;
+      height: 1px;
+    }
+    position: relative;
+    .sup__title{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+
+      img{
+        width: 80px;
+      }
+
+    };
+   h2{
+    font-size: 2rem;
+    font-weight: 750;
+   }
+}
+&__right{
+  img{
+    width: 100%;
+  }
+  .thumb{
+    position: relative;
+    a {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 70px;
+      height: 70px;
+      display: inline-block;
+      line-height: 70px;
+      text-align: center;
+      background-color: #fb5849;
+      color: #fff;
+      border-radius: 50%;
+      transform: translate(-35px, -35px);
+      transition: all .3s;
+    }
+  }
+}
+&__thumb{
+  position: relative;
+  box-shadow: 4px 5px 10px $gray;
+  border-radius: 50%;
+  padding: 30px;
+  background-color: $white;
+  @include flex-centering();
+  width: 250px;
+  margin: 0 auto;
+  height: 250px;
+
+  }
+  img{
+
+    width: 100%;
+   margin: auto;
+   border-radius: 8px;
+    max-width:750px ;
+  }
+
+}
+
+
+
+.Sectors {
+  margin-top: 20px;
+  padding: 100px 0px 0px 0px;
+  position: relative;
+  z-index: 9;
+}

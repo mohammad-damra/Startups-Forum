@@ -1,0 +1,54 @@
+<i class='bx bx-menu' id="toggleLines"  (click)="closeSideBar()" [ngClass]="ShowToggle ? 'hidden' : 'block'" ></i>
+
+ <div class="sidebar__outer" [ngClass]="closingSideBar? 'hidden':'block'">
+  <div class="sidebar  "[ngClass]="showSidebar? 'open ':''">
+    <div class="logo-details">
+
+        <div class="logo_name"> <img class="logo_img" src="https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/home%2Flogo.svg?alt=media&token=1b3994ca-ae70-4b80-a2fa-1b540c768ae0" alt="" >Neue Welt</div>
+        <i class='bx bx-menu' id="btn"  (click)="handleSidebar()" [ngClass]="ShowToggle ? 'block' : 'hidden'" ></i>
+    </div>
+    <ul class="nav-list">
+
+
+<!-- <ng-container *ngFor="let nav of navMenu.children" >
+  <li>
+    <a [routerLink]="[nav.route]"  routerLinkActive="activeNav">
+      <mat-icon matListItemIcon>{{nav.icon}}</mat-icon>
+      <span class="links_name">{{nav.displayName}}</span>
+    </a>
+     <span class="tooltip">Dashboard</span>
+  </li>
+</ng-container> -->
+
+<li>
+  <a [routerLink]="['/dashboard/dashboard-overview']"  routerLinkActive="activeNav">
+    <i class='bx bx-grid-alt'></i>
+    <span class="links_name">Dashboard</span>
+  </a>
+   <span class="tooltip">Dashboard</span>
+</li>
+<li  >
+ <a [routerLink]="['/dashboard/sectors-manage']"  routerLinkActive="activeNav">
+   <i class='bx bx-intersect' ></i>
+   <span class="links_name">Sectors</span>
+
+ </a>
+ <span class="tooltip" >Sectors</span>
+</li>
+
+<li>
+ <a [routerLink]="['/dashboard/startups-manage']"  routerLinkActive="activeNav">
+   <i class='bx bx-rocket'></i>
+   <span class="links_name">Startups</span>
+ </a>
+ <span class="tooltip">Startups</span>
+</li>
+<li>
+ <a [routerLink]="['/home']">
+   <i class='bx bx-home-circle' ></i>
+   <span class="links_name">Home</span>
+ </a>
+ <span class="tooltip">Home</span>
+</li>
+
+</ul>

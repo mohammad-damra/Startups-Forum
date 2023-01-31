@@ -1,0 +1,66 @@
+@use '../global' as *;
+
+.sectorsDisplat{
+  &__detailsCard{
+    background-color: $white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px $gray;
+    width: 90%;
+    @media screen and (max-width:600px) {
+        width: 100%;
+    }
+    .email{
+      margin: 20px 0;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      span{
+        color: $gray_dark;
+        font-weight: 500;
+      }
+      i{
+        width: 40px;
+        height: 40px;
+        text-align: center;
+       line-height: 40px;
+        font-size: 1.2rem;
+        color: $white;
+        background-color: $main_gold;
+        border-radius: 50%;
+        margin: 0 10px;
+
+      }
+    }
+  }
+}
+.display__line{
+  display: inline-block;
+  width: 20px;
+  background-color: $main_gold;
+  height: 1px;
+}
+
+.startups__info{
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  @media screen and (max-width:600px) {
+    flex-direction: column;
+    gap: 10px ;
+  }
+}
+.display__info{
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+.info__details{
+  color: $gray_dark;
+}
+.info__title{
+  font-weight: 700;
+  color:$main_dark
+}

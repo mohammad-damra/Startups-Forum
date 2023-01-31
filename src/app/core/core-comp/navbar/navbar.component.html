@@ -1,0 +1,138 @@
+<nav class="nav" [ngClass]="sticky? 'nav_sticky':'nav'">
+  <div class="header_wrapper wrapper header" id="stickyHeader" >
+    <div class="header_left">
+    <img src="./../../../../assets/favicon.png" alt="" style="width:50px">
+      <ul class="header_left_list hidden xl:flex" [ngClass]="sticky? 'header_left_list_sticky':'header_left_list_notSticky'">
+      <ng-container *ngIf="_userData.isAuthenticated$|async">
+        <li class="header_left_list_item" [routerLink]="['/home']" routerLinkActive="activeNavLinks">
+          Home
+        </li>
+        <li class="header_left_list_item" [routerLink]="['/sectors']" routerLinkActive="activeNavLinks" >
+          Sectors
+        </li>
+        <li class="header_left_list_item"  [routerLink]="['/startups']" routerLinkActive="activeNavLinks">
+          Startups
+        </li>
+        <li class="header_left_list_item"  [routerLink]="['/about']" routerLinkActive="activeNavLinks">
+          About Us
+        </li>
+      </ng-container>
+        <ng-container *ngIf="isAdmin">
+          <li class="header_left_list_item dashmenu"   >
+          <a [routerLink]="['/dashboard']">Dashboard</a>
+          <ul class="dropmenu">
+            <li >
+              <a [routerLink]="['/dashboard/dashboard-overview']">Dashboard Overview</a>
+          </li>
+          <li>
+              <a [routerLink]="['/dashboard/sectors-manage']">Sectors</a>
+          </li>
+          <li>
+              <a [routerLink]="['/dashboard/startups-manage']">Startups</a>
+          </li>
+          </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="header_right">
+      <div class="header_right_form hidden lg:block" *ngIf="isHome">
+
+      </div>
+      <div class="header_right_btns notAuth" *ngIf="!(_userData.isAuthenticated$|async) ; else authLinks ">
+        <button class="user_name" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'" (click)="openModal($event,'LoginForm')">Log In</button
+        ><button class="btn_secondary" (click)="openModal($event,'RegisterForm')">Sign Up</button>
+      </div>
+     <ng-template #authLinks>
+      <div class="header_right_btns">
+        <a class="user_name hidden sm:inline-block" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'">Hi {{userName}}!</a
+        ><button class="btn_secondary hidden sm:inline-block" [routerLink]="['/startups/add-startup']">New Startup!</button>
+        <a class="user_name" (click)="logout()" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'"><i class="fa-solid fa-right-from-bracket"> <span class="links_name">Logout</span></i> </a>
+      </div>
+     </ng-template>
+     <div class="sidebar__menu xl:hidden">
+      <div (click)="handleSidebar()" class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+      </div>
+  </div>
+    </div>
+  </div>
+</nav>
+<!-- sidebar -->
+<div class="sidebar__area xl:hidden" [ngClass]="showSidebar? 'sidebar-opened':'sidebar-closed'">
+  <div class="sidebar__wrapper">
+    <div (click)="handleSidebarClose()" class="sidebar__close">
+        <button class="sidebar__close-btn" id="sidebar__close-btn">
+        <span><mat-icon>close</mat-icon></span>
+        <span>close</span>
+        </button>
+    </div>
+    <div class="sidebar__content">
+        <div class="logo mb-40">
+          <a routerLink="/">
+            <svg class="logo" style="width: 70px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewBox="0 0 100 100" xml:space="preserve">
+              <desc>Created with Fabric.js 4.6.0</desc>
+              <defs>
+              </defs>
+              <g transform="matrix(1 0 0 1 32.37 50)" id="XsTpeIrOdN6ynHLfLIkbA"  >
+              <path style="stroke: rgb(220,162,27); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(229,176,54); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M -17.80297 -22 L -28.655949999999997 -10.24864 L 4.010060000000003 22 L 28.655950000000004 -2.5999100000000013 L 17.324510000000004 -13.931350000000002 L 4.010060000000003 0.000009999999997845066 z" stroke-linecap="round" />
+              </g>
+              <g transform="matrix(1.93 0 0 1.93 89.99 65.7)" id="85eJTCYTUFNCRw5dzkWtF"  >
+              <path style="stroke: rgb(220,162,27); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(229,176,54); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M 0 -3.25779 C 1.7983 -3.25779 3.25779 -1.7983 3.25779 0 C 3.25779 1.7983 1.7983 3.25779 0 3.25779 C -1.7983 3.25779 -3.25779 1.7983 -3.25779 0 C -3.25779 -1.7983 -1.7983 -3.25779 0 -3.25779 z" stroke-linecap="round" />
+              </g>
+              <g transform="matrix(1 0 0 1 69.52 54.46)" id="y918LV4CvRuuOXnnqf79P"  >
+              <path style="stroke: rgb(220,162,27); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(229,176,54); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(0, 0)" d="M 7.08215 -17.54075 L 17.84702 -7.3424499999999995 L -7.082159999999998 17.54075 L -17.847029999999997 6.8218499999999995 z" stroke-linecap="round" />
+              </g>
+              </svg>
+          </a>
+          <h3 class="logo_title">Neue Welt</h3>
+        </div>
+         <div class="side-info-content sidebar-menu menu">
+            <ul>
+              <li class="menu-item-has-children list-el">
+                  <a [routerLink]="['/home']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">Home</a >
+              </li>
+           <ng-container *ngIf="_userData.isAuthenticated$|async">
+            <li class="menu-item-has-children list-el">
+              <a  [routerLink]="['/sectors']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()" >
+                Sectors
+              </a>
+                </li>
+                <li class="menu-item-has-children list-el">
+              <a [routerLink]="['/startups']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">Startups</a>
+            </li>
+            <ng-container *ngIf="isAdmin">
+              <li class="menu-item-has-children list-el"  [class.active]="showDashDropdown"
+               >
+               <a (click)="dashDropdown()">Dashboard</a>
+               <ul class="sub-menu" [class.active]="showDashDropdown">
+                <li>
+                    <a [routerLink]="['/dashboard/dashboard-overview']">Dashboard Overview</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/dashboard/sectors-manage']">Sectors</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/dashboard/startups-manage']">Startups</a>
+                </li>
+              </ul>
+              </li>
+            </ng-container>
+           </ng-container>
+                  <li class="menu-item-has-children list-el">
+                <a [routerLink]="['/about']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">About US</a>
+              </li>
+              <li class="menu-item-has-children list-el">
+              <div *ngIf="(_userData.isAuthenticated$|async) ; else notAuthed " >  <a routerLinkActive="activeNavLinks" [routerLink]="['/startups/add-startup']">New Startup!</a></div>
+              <ng-template #notAuthed>
+                <a routerLinkActive="activeNavLinks" (click)="openModal($event,'RegisterForm')" (click)="handleSidebarClose()">New Startup!</a>
+              </ng-template>
+              </li>
+          </ul>
+        </div>
+
+    </div>
+  </div>
+</div>

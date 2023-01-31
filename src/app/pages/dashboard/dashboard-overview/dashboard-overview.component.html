@@ -1,0 +1,130 @@
+<app-spinner *ngIf="showSpinner"></app-spinner>
+<div class="wrapper" *ngIf="!showSpinner">
+  <div class="dashOV">
+    <div class="dashboardOV__header pt-20">
+      <div class="dashboardOV__sub-header">
+        <h3 class="dashboardOV__page-title">Welcome Admin!</h3>
+      </div>
+  </div>
+
+  <div class="dashboardOV__OVtopCards">
+  <div class="ov-col flex-1 ">
+    <div class="card ">
+      <div class="card-body">
+        <div class="db-widgets flex justify-between items-center">
+          <div class="db-info">
+            <h6>Users</h6>
+            <h3>{{usersLength}}</h3>
+          </div>
+          <div class="db-icon">
+            <img  src="https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/dashboard%2Fdash-icon-01.ico?alt=media&token=44f13955-c4ad-492c-b2a8-d8bbbc597981" style="width: 55px;"  alt="Dashboard Icon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ov-col flex-1">
+    <div class="card ">
+      <div class="card-body">
+        <div class="db-widgets flex justify-between items-center">
+          <div class="db-info">
+            <h6>Startups</h6>
+            <h3>{{startupsLength}}</h3>
+          </div>
+          <div class="db-icon">
+            <img  src="https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/dashboard%2Fdash-icon-03.svg?alt=media&token=ea8d2dbb-ad8a-421b-89e3-58bea26b1edc"  alt="Dashboard Icon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ov-col flex-1">
+    <div class="card ">
+      <div class="card-body">
+        <div class="db-widgets flex justify-between items-center">
+          <div class="db-info">
+            <h6>Sectors</h6>
+            <h3>{{sectorsLength}}</h3>
+          </div>
+          <div class="db-icon">
+            <img  src="https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/dashboard%2Fdashboard-2.ico?alt=media&token=848eccb9-da2d-4d05-b3eb-f14ad42c6e7d" style="width:55px" alt="Dashboard Icon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="dashboardOV__users mt-100">
+
+      <!-- Star Students -->
+      <div class="dashboardOV__usersCard flex-fill student-space comman-shadow">
+       <div class="table-responsive">
+        <div class="card-header flex items-center mb-40">
+          <h5 class="card-title">Users</h5>
+        </div>
+          <div class="card-table mb-20">
+            <table class="table table-striped ">
+              <thead class="mb-20">
+                <tr>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Age</th>
+                  <th class="text-center">Phone</th>
+                  <th class="text-center hidden sm:block">Email</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of usersData">
+                  <td class="text-center">
+                    <div>{{user.fname}} {{user.name}}</div>
+                  </td>
+                  <td class="text-center">
+                    <a [routerLink]="'/layout/profile/profile-main'">
+
+                      {{user.age}}
+                    </a>
+                  </td>
+                  <td class="text-center">{{user.phoneNumber}}</td>
+                  <td class="text-center  hidden sm:block">{{user.email}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <div class="card-table">
+            <table class="table table-striped ">
+              <thead class="mb-20">
+                <tr>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Message</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let messages of messagesData">
+                  <td class="text-center">
+                    <div>{{messages.name}}</div>
+                  </td>
+                  <td class="text-center">
+                    {{messages.message}}
+                  </td>
+                  <td class="text-center">
+                    <i (click)="deleteMessage(messages.key)" class=" cursor-pointer fa-solid fa-trash"></i>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+
+</div>

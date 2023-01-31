@@ -1,0 +1,90 @@
+<!--Alert Message -->
+<app-alert *ngIf="showAlert" [color]="alertColor"
+  ><div class="container">
+    <p class="dynamic-text">{{ alertMessage }}</p>
+  </div></app-alert
+>
+<!-- Registration Form -->
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <!-- Name -->
+  <div class="flex gap-4">
+    <div class="mb-3">
+      <label class="inline-block mb-2">First Name</label>
+      <app-input
+        [control]="fname"
+        placeholder="Enter first name"
+        type="text"
+      ></app-input>
+    </div>
+    <div class="mb-3">
+      <label class="inline-block mb-2">Last Name</label>
+      <app-input
+        [control]="lname"
+        placeholder="Enter last name"
+        type="text"
+      ></app-input>
+    </div>
+  </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Email</label>
+    <app-input
+      [control]="email"
+      type="email"
+      placeholder="Enter email"
+    ></app-input>
+  </div>
+  <!-- Password -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Password</label>
+    <app-input
+      [control]="password"
+      type="password"
+      placeholder="Enter password"
+    ></app-input>
+  </div>
+  <!-- Confirm Password -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Confirm Password</label>
+    <app-input
+      [control]="confirm_password"
+      type="password"
+      placeholder="Confirm password"
+    ></app-input>
+  </div>
+  <!-- Age -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Age</label>
+    <app-input
+      [control]="age"
+      type="number"
+      placeholder="Enter age"
+    ></app-input>
+  </div>
+  <!-- Profession -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Profession</label>
+    <app-input
+      [control]="profession"
+      placeholder="Enter a profession"
+      type="text"
+    ></app-input>
+  </div>
+  <!-- Phone Number -->
+  <div class="mb-3">
+    <label class="inline-block mb-2">Phone Number</label>
+    <app-input
+      [control]="phoneNumber"
+      placeholder="Enter a phone number"
+      format="(000)000-0000"
+    ></app-input>
+  </div>
+  <button
+    type="submit"
+    class="block w-full bg-yellow-600 text-white py-1.5 px-3 rounded transition hover:bg-yellow-800 disabled:opacity-50 disabled:bg-yellow-500"
+    [disabled]="registerForm.invalid || inSubmission"
+    style="background-color: blue"
+  >
+    SignUp
+  </button>
+</form>

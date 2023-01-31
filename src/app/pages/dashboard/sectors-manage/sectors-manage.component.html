@@ -1,0 +1,68 @@
+<!-- <app-spinner *ngIf="showSpinner"></app-spinner> -->
+<div class="wrapper flex justify-center">
+  <div class="dash-Sector-Manage__wrapper pb-100">
+    <h1 class="dash-Sector-Manage__title">Sectors</h1>
+    <div class="action_btns">
+      <button mat-raised-button  (click)="addSector()" >Add Sector</button>
+    </div>
+    <mat-table class="dash-Sector-Manage__table" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+      <!-- Sector Column -->
+      <ng-container matColumnDef="sectorName">
+        <th mat-header-cell *matHeaderCellDef> Sector </th>
+        <td mat-cell *matCellDef="let element"> {{element.sectorName}} </td>
+      </ng-container>
+
+      <!-- Parent Categry Column -->
+    <ng-container matColumnDef="sectorLogo">
+    <th mat-header-cell *matHeaderCellDef> Logo </th>
+    <td mat-cell *matCellDef="let element"> <img src="{{element.sectorLogo}}" alt="" style="width:30px;"> </td>
+    </ng-container>
+
+
+      <!-- Design Color Column -->
+      <ng-container matColumnDef="designColor">
+        <th mat-header-cell *matHeaderCellDef> Design Color </th>
+        <td mat-cell *matCellDef="let element"> {{element.designColor}} </td>
+      </ng-container>
+
+
+      <!-- Parent Categry Column -->
+      <ng-container matColumnDef="parentCategoryName">
+        <th mat-header-cell [hidden]="show" *matHeaderCellDef> Parent Category Name </th>
+        <td mat-cell [hidden]="show" *matCellDef="let element"> {{element.parentCategoryName}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-Action matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="editSector(element)">
+            <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteSector(element.key)">
+            <mat-icon>delete</mat-icon>
+              </button>
+             </td>
+
+
+      </ng-Action>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        >
+      </tr>
+
+    </mat-table>
+    <mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page">
+    </mat-paginator>
+
+</div>
+
+</div>
+

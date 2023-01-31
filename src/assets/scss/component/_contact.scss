@@ -1,0 +1,146 @@
+@use '../global' as *;
+
+.contact{
+
+  &__wrapper{
+    @include flex-centering();
+    width:80%;
+    margin: auto;
+  }
+  &__row{
+    @extend %flex-row;
+    gap: 50px;
+    @media screen and (max-width:792px){
+      flex-direction: column;
+    }
+  }
+
+  &__heading{
+    h6{
+      font-size: 1.2rem;
+      color: $main_gold;
+      position: relative;
+      padding-left: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+
+      ;
+      img{
+        margin: 0 20px;
+      }
+      &::before{
+        content: '';
+        display: inline-block;
+       position: absolute;
+        top: 20px;
+        left: 0;
+        width: 40px;
+        background-color: $main_gold;
+        height: 1px;
+      }
+    }
+   h2{
+    font-size: 2rem;
+    font-weight: 750;
+   }
+
+
+  }
+  &__boxes{
+
+    @extend %flex-col;
+
+    .phone , .message{
+      background-color:$white;
+      border: 2px solid $main_gold;
+      border-radius: 5px;
+      text-align: center;
+     padding: 0 40px 40px 40px;
+
+     h4{
+      font-weight: 700;
+      padding: 20px 0;
+     }
+     span{
+      color:$gray_dark;
+     }
+      i{
+        width: 70px;
+        height: 70px;
+        display: inline-block;
+        text-align: center;
+        line-height: 70px;
+        color: #fff;
+        background-color: $main_dark;
+        border-radius: 50%;
+        font-size: 24px;
+        margin-top: -35px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+&__info{
+  &-inner{
+      padding: 45px 40px;
+      padding-right: 70px;
+      @include border-radius(4px);
+      @include box-shadow(0px 30px 50px 0px rgba(1, 11, 60, 0.1));
+      position: relative;
+      z-index: 1;
+
+      @media #{$md}{
+          margin-top: 50px;
+      }
+      @media #{$sm}{
+          margin-top: 50px;
+      }
+      @media #{$xs}{
+          margin-top: 50px;
+          padding-right: 35px;
+      }
+  }
+  &-icon{
+      & svg{
+          fill:none;
+          stroke:$main_gold;
+          stroke-width:2;
+          stroke-linecap:round;
+          stroke-linejoin:round;
+
+          &.map{
+              width: 16px;
+              height: 20px;
+          }
+          &.mail{
+              width: 18px;
+              height: 18px;
+          }
+          &.call{
+              width: 18px;
+              height: 18px;
+          }
+      }
+  }
+  &-text{
+      & h4{
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 6px;
+      }
+      & p{
+          margin-bottom: 0;
+          color: $black;
+          & a{
+              &:hover{
+                  color: $main_gold;
+              }
+          }
+      }
+  }
+}
+}

@@ -1,0 +1,25 @@
+<div class="sectors_categories__area pt-100 pb-100">
+  <div class="wrapper">
+    <div class="section__title-container">
+      <h2 class="section__title">Explore <br />Main Industry Sectors</h2>
+    </div>
+  </div>
+  <div class="sectors_categories__list pt-30">
+    <app-spinner *ngIf="showSpinner"></app-spinner>
+    <ng-container *ngFor="let sector of sectors; trackBy: trackByName">
+      <div class="col" (click)="toDetails(sector.sectorName)">
+        <div class="sectors_categories__item">
+          <div class="sectors_categories__icon">
+            <img src="{{ sector.sectorLogo }}" alt="sector_logo" />
+          </div>
+          <div class="sectors_categories__content">
+            <h4 class="sectors_categories__title">
+              <a>{{ sector.sectorName }}</a>
+            </h4>
+            <p>{{ sector.parentCategoryName }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

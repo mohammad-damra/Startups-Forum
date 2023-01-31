@@ -1,0 +1,35 @@
+<div class="service pt-120  pb-120 wrapper">
+  <div class="service__container">
+      <div class="service-item">
+        <div class="begin__title-container text-left mb-50">
+          <h2 class="begin__title ">Let's begin</h2>
+          <p class="service__line"></p>
+
+         </div>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem aspernatur earum nemo, nisi consequuntur labore.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, consequuntur.
+      </p>
+      <ul class="service-list">
+          <li> <i class="fa-regular fa-circle-check"></i> Easy free sign up , fast response.</li>
+          <li><i class="fa-regular fa-circle-check"></i>Simple startup requeset , fast approval.</li>
+          <li><i class="fa-regular fa-circle-check"></i>Declare your company on an offical Jordan Ministry of Digital Economy. </li>
+          <li><i class="fa-regular fa-circle-check"></i>All main industires sectors.</li>
+          <li><i class="fa-regular fa-circle-check"></i>Easy to use. </li>
+      </ul>
+      </div>
+      <div class="service-item">
+
+          <div class="service-item-img" *ngIf="beginImages && beginImages.length >0">
+
+              <img  *ngFor="let img of beginImages ; let index=index" class="fade" [src]="img.imgSrc" [ngClass]="{'activeImg': selectedIndex===index}" alt="">
+              <ul class="service-bullets" *ngIf="indicator">
+                <li (click)="selectImage(index)" *ngFor="let dot of beginImages ; let index=index" [ngClass]="{'active' : selectedIndex===index}" class="dot"></li>
+              </ul>
+          </div>
+
+      </div>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,125 @@
+
+<app-banner title="Request Startup"  subtitle="startup"></app-banner>
+
+<div class="create-startup__wrapper">
+    <h1 mat-dialog-title>Add Startup</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addStartup" (ngSubmit)="addStartupSubmit()" class="flex flex-col">
+ <!-- Validation using ng2-validation library -->
+    <div class="grid">
+            <!-- Startup Name -->
+    <mat-form-field appearance="outline">
+        <mat-label>Startup Name</mat-label>
+        <input formControlName="startupName"  name="startupName" id="startupName" matInput placeholder="Enter startup name" type="text" >
+      <p class="text-red-400" *ngIf="startupName.touched && startupName.dirty && startupName.errors">invalid</p>
+      </mat-form-field>
+
+      <!-- City  -->
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input  formControlName="startupCity"  name="startupCity" id="startupCity" matInput type="text" placeholder="City of the company"   >
+        <p class="text-red-400" *ngIf="startupCity.touched && startupCity.dirty && startupCity.errors">invalid</p>
+      </mat-form-field>
+
+        <mat-form-field appearance="fill" >
+          <mat-label>Sectors</mat-label>
+          <mat-select  formControlName="sectorName"  name="sectorName"  id="sectorName" multiple >
+            <mat-option [value]="sector.sectorName" *ngFor="let sector of sectors">{{sector.sectorName}}</mat-option>
+          </mat-select>
+          <p class="text-red-400" *ngIf="sectorName.touched && sectorName.dirty && sectorName.errors">invalid</p>
+        </mat-form-field>
+      <!-- Founder -->
+      <mat-form-field appearance="outline">
+        <mat-label>Founder Name</mat-label>
+        <input formControlName="founderName" name="founderName" id="founderName" matInput placeholder="Enter founder name" type="text" >
+        <p class="text-red-400" *ngIf="founderName.touched && founderName.dirty && founderName.errors">invalid</p>
+      </mat-form-field>
+
+      <!-- Number of employee -->
+      <mat-form-field appearance="outline">
+        <mat-label>Number of emplyee</mat-label>
+        <input formControlName="numberOfEmployee"  name="numberOfEmployee" id="numberOfEmployee" matInput placeholder="Number of emplyee" type="number" >
+        <p class="text-red-400" *ngIf="numberOfEmployee.touched && numberOfEmployee.dirty && numberOfEmployee.errors">invalid</p>
+      </mat-form-field>
+
+
+      <!-- Year -->
+      <mat-form-field appearance="outline">
+        <mat-label>Year of establishment</mat-label>
+        <input  formControlName="yearOfEstablishment"   name="yearOfEstablishment" id="yearOfEstablishment" matInput placeholder="Year of establishment" type="number" >
+        <p class="text-red-400" *ngIf="yearOfEstablishment.touched && yearOfEstablishment.dirty && yearOfEstablishment.errors">invalid</p>
+      </mat-form-field>
+
+      <!-- WebURL -->
+      <mat-form-field appearance="outline">
+        <mat-label>Website URL of the company</mat-label>
+        <input  formControlName="websiteURL"   name="websiteURL" id="websiteURL" matInput placeholder="Website URL" type="text"  >
+        <p class="text-red-400" *ngIf="websiteURL.touched && websiteURL.dirty && websiteURL.errors">invalid</p>
+      </mat-form-field>
+
+      <!-- Email -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input   formControlName="emailAddress"  name="emailAddress" id="emailAddress" matInput placeholder="Email" type="email"   >
+        <p class="text-red-400" *ngIf="emailAddress.touched && emailAddress.dirty && emailAddress.errors">invalid</p>
+      </mat-form-field>
+    </div>
+          <!-- descripe -->
+          <mat-form-field appearance="outline">
+            <mat-label>Describe your company</mat-label>
+            <textarea  formControlName="description"  name="description" cols="30" rows="10" matInput   id="description"></textarea>
+            <!-- <textarea   #description="ngModel"   [(ngModel)]="startup.description" name="description" id="description" matInput placeholder="Email"  required> -->
+              <p class="text-red-400" *ngIf="description.touched && description.dirty && description.errors">invalid</p>
+          </mat-form-field>
+     <!-- Drop -->
+     <div *ngIf="!nextStep; else uploadLogoContainer"
+     (dragend)="isDragover=false"
+      (dragover)="isDragover=true"
+      (dragenter)="isDragover=true"
+      (dragleave)="isDragover=false"
+      (mouseleave)="isDragover=false"
+      (drop)="uploadLogo($event)"
+      [ngClass]="{ 'bg-amber-400 border-amber-400 border-solid' : isDragover}"
+      appEventBlocker class="dragBox
+      rounded text-center cursor-pointer border border-dashed
+     border-gray-400 transition duration-500 hover:text-white
+     hover:bg-amber-400 hover:border-amber-400 hover:border-solid text-xl">
+    <h5 class="dragTitle">Drop logo here (PNG)</h5></div>
+
+    <ng-template #uploadLogoContainer>
+      <img  class="previewLogo"  [src]="logoUrl" alt=""  style="width: 100px;">
+      <i class="fa-solid fa-x" (click)="removeLogo()"></i>
+    </ng-template>
+    <!-- Startup Logo -->
+    <div  *ngIf="!nextStep" class="mb-50 mt-50" class="logo__form__img mt-40 mb-50" >
+       <div class="upload__logo__content">
+        <label for="startupLogo" class="create-startup__upLoad" >
+          Logo
+         </label>
+          <input formControlName="startupLogo"  name="startupLogo" id="startupLogo" type="file" class="upload_input" type="file" (change)="uploadLogo($event)"
+              class="block w-full py-1.5 px-3 hidden text-yellow-800 border border-gray-400 transition
+              duration-500 focus:outline-none rounded bg-transparent focus:border-yellow-800" accept="image/*"/>
+
+       </div>
+       <img  class="previewLogo"  [src]="logoUrl" alt=""  style="width: 100px;">
+     </div>
+
+
+     <mat-form-field appearance="outline">
+      <mat-label>Cover Image URL (optional)</mat-label>
+      <input  formControlName="coverImg" name="coverImg" id="coverImg" matInput placeholder="Cover Image URL" type="text" >
+      <p class="text-red-400" *ngIf="coverImg.errors">invalid</p>
+    </mat-form-field>
+    <ng-container >
+        <button type="submit" [disabled]="addStartup.invalid && !file || inSubmission"
+        class="block  bg-yellow-600 text-white py-1.5 px-3 rounded transition mt-8
+          hover:bg-yellow-800 disabled:opacity-50 disabled:bg-yellow-500"  >
+        Submit
+      </button>
+    </ng-container>
+</form>
+    </div>
+
+
+
+</div>

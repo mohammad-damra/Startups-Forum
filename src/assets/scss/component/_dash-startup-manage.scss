@@ -1,0 +1,67 @@
+@use '../global' as *;
+
+.mat-table {
+  overflow-x: scroll;
+}
+
+.mat-cell,
+.mat-header-cell {
+  word-wrap: initial;
+  display: table-cell;
+  padding: 0px 10px;
+  line-break: unset;
+  width: 10%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
+
+mat-table{
+  border-radius: 8px !important;
+}
+.dash-Startup-Manage__table {
+
+
+  td, th {
+
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+}
+.dash-Startup-Manage__title{
+  font-size: 2rem;
+  font-weight: 900;
+  color:var(--primary);
+
+}
+.dash-Startup-Manage__wrapper{
+  @extend %flex-col;
+  width: 90%;
+  gap: 20px;
+  h1{
+      margin-top: 20px;
+  }
+}
+.action_btns{
+  @extend %flex-row;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+
+
+@media screen and (max-width:450px){
+.dash-Startup-Manage__title{
+text-align: center
+};
+mat-form-field{
+      width: 80%;
+      align-self: center
+};
+
+}

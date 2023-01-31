@@ -1,0 +1,75 @@
+<app-spinner *ngIf="showSpinner"></app-spinner>
+<section *ngIf="!showSpinner">
+  <!-- <app-navbar></app-navbar> -->
+<app-banner title="Startups"  subtitle="Startup" coverImg="https://i.pinimg.com/originals/28/00/71/28007141fb21d9a96a7247e75df156cc.jpg"></app-banner>
+<section class="Sectors  mb-100" id="about" *ngFor="let start of startups">
+  <div class="wrapper " >
+      <div class="sectorsDisplat__row">
+          <div class="sectorsDisplat__col">
+              <div class="sectorsDisplat__left">
+                  <div class="sectorsDisplat__heading">
+                   <div class="sup__title">
+                    <span class="display__line"></span>
+                    <img class="sup__logo" src="{{start?.startupLogo}}"  alt="">
+                    <h6>{{start?.startupName}}</h6>
+                   </div>
+                      <h2 class=" mt-20">Welcome to {{start?.startupName}} <br>Company</h2>
+                  </div>
+                  <div class="sectorsDisplat__description mt-40 mb-50">
+                    <p>{{start?.description}}</p>
+                    <div class="startups__info mt-50">
+                     <div class="info_left">
+                      <div class="display__info mt-10  block">
+                        <span class="display__line"></span><span class="info__title pl-10">Email</span>
+                       </div>
+                       <div class="info__details">
+                        <p>{{start?.emailAddress}}.</p>
+                       </div>
+                      <div class="display__info mt-10 block">
+                        <span class="display__line"></span><span class="info__title pl-10">Founder</span>
+                       </div>
+                       <div class="info__details">
+                        <p>{{start?.founderName}}.</p>
+                       </div>
+                      <div class="display__info mt-10 block">
+                        <span class="display__line"></span><span class="info__title pl-10">Number of Employee</span>
+                       </div>
+                       <div class="info__details">
+                        <p>{{start?.numberOfEmployee}}.</p>
+                       </div>
+
+                     </div>
+                     <div class="info_right">
+                      <div class="display__info mt-10 block">
+                        <span class="display__line"></span><span class="info__title pl-10">City</span>
+                       </div>
+                       <div class="info__details">
+                        <p>{{start?.startupCity}}.</p>
+                       </div>
+                      <div class="display__info mt-10 block">
+                        <span class="display__line"></span><span class="info__title pl-10">Year of lunch</span>
+                       </div>
+                       <div class="info__details">
+                        <p>{{start?.yearOfEstablishment}}.</p>
+                       </div>
+                     </div>
+                    </div>
+                  </div>
+
+
+              </div>
+          </div>
+          <div class="sectorsDisplat__right">
+
+                  <div class="sectorsDisplat__thumb_startup">
+                      <img src="{{start?.coverImg}}" alt="">
+                  </div>
+
+          </div>
+      </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
+</section>

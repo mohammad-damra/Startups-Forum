@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Add Sector Form</h1>
+
+
+<div mat-dialog-content>
+  <form  #addSectorForm="ngForm" (ngSubmit)="submitSector(addSectorForm.value)" class="flex flex-col">
+    <!-- Sector Name -->
+    <mat-form-field appearance="outline">
+      <mat-label>Sector Name</mat-label>
+      <input [(ngModel)]="sector.sectorName" name="sectorName" id="sectorName" matInput placeholder="Enter sector name" type="text" >
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <!-- Sector Logo -->
+    <div class="mb-3">
+      <mat-label class="inline-block mb-2">Sector Logo</mat-label>
+      <input ngModel name="sectorLogo" id="sectorLogo" type="file" class="upload_input" type="file" (change)="uploadLogo($event)"
+        class="block w-full py-1.5 px-3 text-yellow-800 border border-gray-400 transition
+        duration-500 focus:outline-none rounded bg-transparent focus:border-yellow-800"/>
+        <img  class="previewLogo"  [src]="logoUrl" alt=""  style="width: 100px;">
+    </div>
+    <!-- Design Color -->
+    <mat-form-field appearance="outline">
+      <mat-label>Design Color</mat-label>
+      <input   [(ngModel)]="sector.designColor" name="designColor" id="designColor" matInput type="color" placeholder="Main color">
+
+    </mat-form-field>
+    <!-- Parent Category Name -->
+    <mat-form-field appearance="outline">
+      <mat-label>Parent Category Name</mat-label>
+      <input    [(ngModel)]="sector.parentCategoryName" name="parentCategoryName" id="parentCategoryName" matInput placeholder="Enter sector name" type="text">
+
+    </mat-form-field>
+    <button type="submit"
+      class="block w-full bg-yellow-600 text-white py-1.5 px-3 rounded transition mt-8
+        hover:bg-yellow-800 disabled:opacity-50 disabled:bg-yellow-500" [disabled]="addSectorForm.invalid">
+      Submit
+    </button>
+</form>
+    </div>

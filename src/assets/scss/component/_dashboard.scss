@@ -1,0 +1,45 @@
+@use '../global' as *;
+.dashboard{
+  background-color: #f6f6f6;
+}
+
+
+// .side_nav{
+//   flex: 1;
+//   max-width: fit-content;
+//   z-index: 2000;
+
+// }
+.dash_content{
+z-index: 1;
+flex: 1;
+width: 100vw;
+transition: all .3s ease-in-out;
+}
+
+
+
+.square{
+  width: 70px !important;
+}
+
+.sq2{
+  width: 250px !important;
+}
+
+.nav-icons{
+  display: flex;
+  justify-content: center;
+}
+
+.nav-icons__list{
+  display: flex;
+  li{
+    margin: 0 20px;
+    a{
+      background-color: $white;
+      padding: 10px 15px;
+      border-radius: 4px;
+    }
+  }
+}
